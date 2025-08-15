@@ -6,6 +6,7 @@
 
   imports = [
     ../shared/home/shell
+    ../shared/home/neovim
   ];
 
 
