@@ -2,7 +2,10 @@
 
 {
   programs = {
-    nushell.enable = true;
+    nushell = {
+      enable = true;
+      configFile.source = ./config.nu;
+    };
     starship.enable = true;
     starship = { enableNushellIntegration = true; };
   };

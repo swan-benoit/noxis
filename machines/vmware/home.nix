@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/swan";
 
   imports = [
-    ../../modules/home/shell
+    ../shared/home/shell
   ];
 
 
