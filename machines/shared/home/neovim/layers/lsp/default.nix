@@ -2,9 +2,7 @@
 
 {
 	imports = [
-		./base.nix
-		./layers/lsp
+		./nix/nix.nix
 	];
-
 
 }
