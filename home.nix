@@ -4,11 +4,17 @@
   home.username = "swan";
   home.homeDirectory = "/home/swan";
 
+  imports = [
+    ./modules/shell
+  ];
+
 
   home.packages = with pkgs; [
+    lazygit
     ripgrep 
     eza 
     fzf 
+    alacritty
   ];
 
   programs.git = {
