@@ -14,7 +14,7 @@
 	    swan-vm = nixpkgs.lib.nixosSystem {
 	      system = "x86_64-linux";
 	      modules = [
-		./machines/vmware/configuration.nix
+		./machines/vmware/system.nix
 		home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
