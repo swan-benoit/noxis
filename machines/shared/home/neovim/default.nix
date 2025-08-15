@@ -2,15 +2,18 @@
 
 {
 	imports = [
-		./layers/nix.nix	  
-		
+		./layers/nix
+
 	];
 
- 	programs.neovim = {
+	programs.neovim = {
 		enable=true;
 		defaultEditor = true;
 		viAlias = true;
 		vimAlias = true;
+		extraLuaConfig = let 
+			config = builtins.readFile ./config.lua; 
+		in '' ${config}'';
 	};
-	
+
 }
