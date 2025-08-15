@@ -1,7 +1,7 @@
 {
 	imports = [
 		./layers/base
-		./layers/completion
+		./layers/completion/blink-cmp
 		./layers/lsp
 	];
 
