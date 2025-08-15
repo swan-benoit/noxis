@@ -2,12 +2,9 @@
 {
 	programs.neovim = {
 		plugins = with pkgs.vimPlugins; [
-			nvim-lspconfig
-
-		];
-		extraPackages = with pkgs; [
-			nixd
-				nixfmt
+			mini-completion
+			mini-icons
+			mini-snippets
 		];
 
 		extraLuaConfig = let 
