@@ -1,8 +1,6 @@
-{ config, lib, pkgs, ...}:
-
 {
 	imports = [
-		./base.nix
+		./layers/base
 		./layers/lsp
 	];
 
