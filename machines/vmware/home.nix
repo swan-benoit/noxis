@@ -10,14 +10,12 @@
 
 
   home.packages = with pkgs; [
-      stylua
-      lua-language-server
-      yazi
-      lazygit
-      ripgrep 
-      eza 
-      fzf 
-      alacritty
+    yazi
+    lazygit
+    ripgrep 
+    eza 
+    fzf 
+    alacritty
   ];
 
   programs.git = {
