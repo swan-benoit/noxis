@@ -1,9 +1,12 @@
 { pkgs, lib,  ...}:
 {
 	programs.neovim = {
+	   	plugins = with pkgs.vimPlugins; [
+			lazydev-nvim
+		];
 		extraPackages = with pkgs; [
-			nixd
-				nixfmt
+			stylua
+			lua-language-server
 		];
 
 		extraLuaConfig = let 
