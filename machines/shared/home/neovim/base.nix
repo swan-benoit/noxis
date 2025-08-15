@@ -1,3 +1,4 @@
+{lib, ...}:
 {
 
 	programs.neovim = {
@@ -7,7 +8,7 @@
 		vimAlias = true;
 		extraLuaConfig = let 
 			config = builtins.readFile ./config.lua; 
-		in '' ${config}'';
+		in lib.mkBefore '' ${config}'';
 	};
 
 }

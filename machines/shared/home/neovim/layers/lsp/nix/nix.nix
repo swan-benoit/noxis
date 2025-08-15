@@ -1,4 +1,4 @@
-{ pkgs, ...}:
+{ pkgs, lib,  ...}:
 {
 	programs.neovim = {
 		plugins = with pkgs.vimPlugins; [
@@ -12,6 +12,6 @@
 
 		extraLuaConfig = let 
 			config = builtins.readFile ./config.lua; 
-		in '' ${config}'';
+		in lib.mkAfter '' ${config}'';
 	};
 }
