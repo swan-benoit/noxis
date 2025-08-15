@@ -10,6 +10,7 @@
 
 
   home.packages = with pkgs; [
+    yazi
     lazygit
     ripgrep 
     eza 
@@ -21,9 +22,6 @@
     enable = true;
     userName = "Swan BENOIT";
     userEmail = "swan.benoit@gmail.com";
-    extraConfig = {
-      safe.directory = "/etc/nixos";
-    };
   };
 
   home.stateVersion = "25.05";

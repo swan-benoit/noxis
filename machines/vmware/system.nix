@@ -82,6 +82,8 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+  programs.neovim.enable = true;
+  programs.neovim.defaultEditor = true;
 
   environment.systemPackages = with pkgs; [
   	neovim
