@@ -1,7 +1,6 @@
-{inputs, ...}:
-
 {
   imports = [
     ./nushell.nix
+    ./nh.nix
   ];
 }
