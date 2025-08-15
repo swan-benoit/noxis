@@ -2,9 +2,7 @@
 
 {
 	imports = [
-		./layers/nix
-		./layers/base
+		./base.nix	  
 	];
-
 
 }
