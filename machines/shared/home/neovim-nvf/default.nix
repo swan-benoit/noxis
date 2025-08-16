@@ -145,7 +145,7 @@
           };
         };
       };
-      fastaction.enable = true;
+
       comments = {
         comment-nvim.enable = true;
       };
