@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{
   programs.nvf = {
     enable = true;
     enableManpages = true;
@@ -43,6 +43,7 @@
 
         lua = {
           enable = true;
+          lsp.lazydev.enable = true;
         };
 
         markdown.enable = true;
@@ -87,7 +88,27 @@
       autopairs.nvim-autopairs.enable = true;
 
       autocomplete = {
-        blink-cmp.enable = true;
+        blink-cmp = {
+          enable = true;
+          setupOpts = {
+            sources = {
+              default = [
+                "lazydev"
+                "lsp"
+                "path"
+                "snippets"
+                "buffer"
+              ];
+              providers = {
+                lazydev = {
+                  name = "LazyDev";
+                  module = "lazydev.integrations.blink";
+                  score_offset = 100;
+                };
+              };
+            };
+          };
+        };
       };
       snippets.luasnip.enable = true;
 
