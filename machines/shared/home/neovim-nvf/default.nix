@@ -39,6 +39,7 @@
 
         nix = {
           enable = true;
+          lsp.server = "nixd";
         };
 
         lua = {
