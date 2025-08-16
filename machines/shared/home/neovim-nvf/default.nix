@@ -49,6 +49,7 @@
         markdown.enable = true;
 
         java.enable = true;
+        nu.enable = true;
       };
 
       debugger = {
