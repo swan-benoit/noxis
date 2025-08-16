@@ -7,9 +7,13 @@
     	      url = "github:nix-community/home-manager/release-25.05";
 	      inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvf = {
+      url = "github:NotAShelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nvf, ... }@inputs: {
     nixosConfigurations = {
 	    swan-vm = nixpkgs.lib.nixosSystem {
 	      system = "x86_64-linux";
@@ -20,6 +24,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.swan = import ./machines/vmware/home.nix;
+	    home-manager.extraSpecialArgs = {inherit nvf;};
 
           }
 	      ];
