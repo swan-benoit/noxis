@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    <nixos-wsl/modules>
     ../shared/system
     ../shared/home/neovim-nvf
   ];
