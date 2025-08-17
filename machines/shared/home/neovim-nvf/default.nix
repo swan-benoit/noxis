@@ -6,9 +6,15 @@
     settings.vim = {
       viAlias = true;
       vimAlias = true;
+
+      options = {
+        shiftwidth = 2;
+        tabstop = 2;
+      };
       debugMode = {
         enable = false;
         level = 16;
+
         logFile = "/tmp/nvim.log";
       };
 
@@ -93,6 +99,12 @@
         blink-cmp = {
           enable = true;
           setupOpts = {
+            cmdline.keymap.preset = "super-tab";
+            mapping = {
+              previous = "<C - p>";
+              next = "<C - n>";
+            };
+
             sources = {
               default = [
                 "lazydev"
