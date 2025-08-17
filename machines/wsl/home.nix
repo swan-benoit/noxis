@@ -1,20 +1,21 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.username = "swan";
   home.homeDirectory = "/home/swan";
 
   imports = [
-    ../shared/home/shell
+    ../shared/home
   ];
-
 
   home.packages = with pkgs; [
     yazi
     lazygit
-    ripgrep 
-    eza 
-    fzf 
+    ripgrep
+    eza
+    fzf
     alacritty
   ];
 
