@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./hardware-configuration.nix
     ../shared/system
@@ -15,8 +12,6 @@
   networking.hostName = "swan-vm";
 
   networking.networkmanager.enable = true;
-
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   time.timeZone = "Europe/Paris";
 
