@@ -22,7 +22,7 @@
   programs.git = {
     enable = true;
     userName = "Swan BENOIT";
-    userEmail = "swan.benoit@gmail.com";
+    userEmail = "swan.benoit@visiativ.com";
   };
 
   home.stateVersion = "25.05";
