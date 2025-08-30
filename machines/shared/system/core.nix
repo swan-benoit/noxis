@@ -7,5 +7,6 @@
   environment.systemPackages = with pkgs; [
     neovim
     git
+    zellij
   ];
 }
