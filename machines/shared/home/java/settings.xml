@@ -1,39 +1,92 @@
-    <?xml version="1.0" encoding="UTF-8"?>
-    <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
-                                  http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
 
-      <localRepository>''${user.home}/.m2/repository</localRepository>
 
-      <servers>
+    <pluginGroups>
+    </pluginGroups>
+
+    <proxies>
+    </proxies>
+
+    <servers>
         <server>
-          <id>my-private-repo</id>
-          <username>${vars.mavenUsername or ""}</username>
-          <password>${vars.mavenPassword or ""}</password>
+            <id>nexus</id>
+            <username>@USERNAME@</username>
+            <password>@PASSWORD@</password>
         </server>
-      </servers>
+    </servers>
 
-      <profiles>
+    <mirrors>
+        <mirror>
+            <!--This sends everything else to /public -->
+            <id>nexus</id>
+            <mirrorOf>external:*</mirrorOf>
+            <url>https://repository.devops.moovapps.com/repository/java-audros-private/</url>
+        </mirror>
+
+        <mirror>
+            <id>mvnrepository</id>
+            <mirrorOf>org.jvnet.substance</mirrorOf>
+            <url>https://repo1.maven.org/maven2</url>
+        </mirror>
+
+        <!-- added back because errors in production -->
+        <mirror>
+            <id>pavlab</id>
+            <mirrorOf>pavlab</mirrorOf>
+            <url>https://maven2.pavlab.msl.ubc.ca</url>
+        </mirror>
+    </mirrors>
+
+    <profiles>
         <profile>
-          <id>default</id>
-          <repositories>
-            <repository>
-              <id>central</id>
-              <url>https://repo1.maven.org/maven2</url>
-              <releases>
-                <enabled>true</enabled>
-              </releases>
-              <snapshots>
-                <enabled>false</enabled>
-              </snapshots>
-            </repository>
-          </repositories>
+            <id>nexus</id>
+            <!--Enable snapshots for the built in central repo to direct -->
+            <!--all requests to nexus via the mirror -->
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://central</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <!-- Disabling repo for testing Nexus proxys https://projects.visiativ.com/issues/167791 -->
+
+                <!-- added back because errors in production -->
+                <repository>
+                    <id>jspresso</id>
+                    <url>http://repository.jspresso.org/maven2</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+
+                <!-- added back because errors in production -->
+                <repository>
+                    <id>pavlab</id>
+                    <url>https://maven2.pavlab.msl.ubc.ca</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+
+            </repositories>
         </profile>
-      </profiles>
 
-      <activeProfiles>
-        <activeProfile>default</activeProfile>
-      </activeProfiles>
+    </profiles>
 
-    </settings>
+    <activeProfiles>
+        <activeProfile>nexus</activeProfile>
+    </activeProfiles>
+</settings>
+
