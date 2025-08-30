@@ -1,4 +1,5 @@
 {
+{inputs, ...}: {
   programs.nvf = {
     enable = true;
     enableManpages = true;
@@ -17,10 +18,45 @@
 
         logFile = "/tmp/nvim.log";
       };
+        registers = "unnamedplus";
 
       notes.neorg = {
         enable = true;
-        setupOpts.load."core.defaults".enable = true;
+        setupOpts = {
+          load = {
+            # Modules de base
+            "core.defaults" = {
+              enable = true;
+            };
+            "core.concealer" = {
+              enable = true;
+              config.icon_preset = "varied";
+            };
+
+            # Gestionnaire de dossiers
+            "core.dirman" = {
+              enable = true;
+              config = {
+                workspaces = {
+                  notes_perso = "~/notes/perso/";
+                  notes_boulot = "~/notes/boulot/";
+                };
+                default_workspace = "notes_perso";
+              };
+            };
+
+            # Raccourcis clavier
+            "core.keybinds" = {
+              enable = true;
+              config.default_keybinds = true;
+            };
+
+            # Intégration avec telescope (si activé)
+            "core.integrations.telescope" = {
+              enable = true;
+            };
+          };
+        };
       };
 
       lsp = {
@@ -100,11 +136,6 @@
           enable = true;
           setupOpts = {
             cmdline.keymap.preset = "super-tab";
-            mapping = {
-              previous = "<C - p>";
-              next = "<C - n>";
-            };
-
             sources = {
               default = [
                 "lazydev"
