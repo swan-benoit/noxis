@@ -9,8 +9,8 @@
       <servers>
         <server>
           <id>my-private-repo</id>
-          <username>${vars.mavenUsername or ""}</username>
-          <password>${vars.mavenPassword or ""}</password>
+          <username>@USERNAME@</username>
+          <password>@PASSWORD@</password>
         </server>
       </servers>
 

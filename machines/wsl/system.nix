@@ -8,12 +8,11 @@
 
   wsl.defaultUser = "swan";
 
-  programs.zsh.enable = true;
   users.users.swan = {
     isNormalUser = true;
     extraGroups = ["wheel"];
     initialPassword = "swan";
-    shell = pkgs.zsh;
+    shell = pkgs.nushell;
   };
 
   networking.hostName = "swan-wsl";

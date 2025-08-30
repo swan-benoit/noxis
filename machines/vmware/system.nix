@@ -54,6 +54,7 @@
     isNormalUser = true;
     description = "swan";
     extraGroups = ["networkmanager" "wheel"];
+    shell = pkgs.nushell;
   };
 
   services.displayManager.autoLogin.enable = true;
