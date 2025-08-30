@@ -1,4 +1,3 @@
-{
 {inputs, ...}: {
   programs.nvf = {
     enable = true;
@@ -18,7 +17,6 @@
 
         logFile = "/tmp/nvim.log";
       };
-        registers = "unnamedplus";
 
       notes.neorg = {
         enable = true;
